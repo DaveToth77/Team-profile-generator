@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveToth77/Team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaveToth77/Team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/DaveToth77/Team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.5"
+  },
+  "devDependencies": {
+    "jest": "^27.2.1"
+  }
+}
