@@ -19,7 +19,8 @@ const startQuestions =  () => {
         },
     ])
     .then(addManager)
-};// Questions start
+};
+// Questions start
 // Manager 
 const addManager = () => {
 
