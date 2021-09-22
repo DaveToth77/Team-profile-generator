@@ -1,14 +1,17 @@
 const inquirer = require('inquirer');
 const generateHTML = require('./src/htmlTemplate')
-// Employee classes should
 
-//Team Profile AF55rZXpe7trmEylbaE1Gv54wn6rwU03aptvRoVIGP8YykoSxqdVLV1TfwflBCE
+// Employee classes
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+//Team Profile Array
 const teamProfileArr = [];
 
 
-const startQuestions =  () => {
-    return inquirer.prompt([
-        {
+const startQuestions = () => {
+    return inquirer.prompt([{
             type: 'input',
             name: 'start',
             message: `
@@ -16,15 +19,14 @@ const startQuestions =  () => {
             Team Profile Generator Pro
             ==========================
               Press Enter to continue `
-        },
-    ])
-    .then(addManager)
+        }, ])
+        .then(addManager)
 };
 // Questions start
 // Manager 
 const addManager = () => {
 
-    
+
 
     return inquirer.prompt([{
                 type: 'input',
@@ -106,7 +108,7 @@ const addManager = () => {
             (answers.otherEmployees === 'Yes') ? addOthers(): generateHTML(teamProfileArr);
         })
 }
-
+//Add intern and engineer
 const addOthers = () => {
     return inquirer.prompt([{
                 type: 'list',
@@ -126,7 +128,7 @@ const addOthers = () => {
                     } else {
                         ({
                             title
-                        }) => console.log(error + noInfoEntered + `Please enter the ${title}\'s name.`);
+                        }) => console.log(`Please enter the ${title}\'s name.`);
                         return false;
                     }
                 },
@@ -143,7 +145,7 @@ const addOthers = () => {
                     } else {
                         ({
                             name
-                        }) => console.log(error + noInfoEntered + `Please enter ${name}\'s employee ID.`);
+                        }) => console.log(`Please enter ${name}\'s employee ID.`);
                         return false;
                     }
                 },
@@ -159,7 +161,7 @@ const addOthers = () => {
                     if (valid) {
                         return true;
                     } else {
-                        console.log(error + `An email address is required. Please enter a valid email address.`)
+                        console.log(`An email address is required. Please enter a valid email address.`)
                         return false;
                     };
                 },
@@ -177,7 +179,7 @@ const addOthers = () => {
                     } else {
                         ({
                             name
-                        }) => console.log(error + noInfoEntered + `Please enter ${name}\'s GitHub username.`);
+                        }) => console.log(`Please enter ${name}\'s GitHub username.`);
                         return false;
                     }
                 },
@@ -195,18 +197,19 @@ const addOthers = () => {
                     } else {
                         ({
                             name
-                        }) => console.log(error + noInfoEntered + `Please enter ${name}\'s school.`);
+                        }) => console.log(`Please enter ${name}\'s school.`);
                         return false;
                     }
                 },
             },
             {
                 type: 'list',
-                name: 'queryMoreReports',
+                name: 'addOthers',
                 message: 'Would you like to add more team members?',
                 choices: ['Yes', 'No'],
             },
         ])
+        //change class depending on response
         .then(answers => {
             if (answers.title === 'Engineer') {
                 const {
@@ -216,7 +219,7 @@ const addOthers = () => {
                     github
                 } = answers;
                 const engineer = new Engineer(name, id, email, github);
-                teamArr.push(engineer);
+                teamProfileArr.push(engineer);
 
             } else if (answers.title === 'Intern') {
                 const {
@@ -226,9 +229,10 @@ const addOthers = () => {
                     school
                 } = answers;
                 const intern = new Intern(name, id, email, school);
-                teamArr.push(intern);
+                teamProfileArr.push(intern);
             };
-            (answers.queryMoreReports === 'Yes') ? addReports(): generateHTML(teamArr);
+            //push to profile array
+            (answers.addOthers === 'Yes') ? addOthers(): generateHTML(teamProfileArr);
         })
 }
 
