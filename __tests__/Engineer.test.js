@@ -13,7 +13,7 @@ test('Should create an Engineer object with a name, id, email and github usernam
 
 test('should set the github username via the constructor function', () => {
     const input = "davetoth77"
-    const result = new Engineer('Name', 5, 'dave@gmail.com', input.getGithub());
+    const result = new Engineer('Name', 5, 'dave@gmail.com', input).getGithub();
     
     expect(input).toEqual(result);
     
