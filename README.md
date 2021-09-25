@@ -13,6 +13,7 @@
 <a href="#-support">🤝 Support</a> 
 </p>
 
+## Walkthough Video
 ## Installation Instructions 
 Run "npm i" to install dependencies. Run "node index" to launch the Team-Profile-generator program.
 ## Usage Information
