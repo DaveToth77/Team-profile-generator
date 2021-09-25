@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const index = require('../index');
 
@@ -12,6 +11,7 @@ const generate = (teamProfileArr) => {
             }
         }
     }
+
     function genEngineers(employee) {
         for (i = 0; i < employee.length; i++) {
             if (employee[i].role === "Engineer") {
@@ -19,6 +19,7 @@ const generate = (teamProfileArr) => {
             }
         }
     }
+
     function genInterns(employee) {
         for (i = 0; i < employee.length; i++) {
             if (employee[i].role === "Intern") {
@@ -28,25 +29,29 @@ const generate = (teamProfileArr) => {
     }
 
 
-//HTML Arrays
-let managerCardHTML = [];
-let engineerCardHTML = [];
-let internCardHTML = [];
+    //HTML Arrays
+    let managerCardHTML = [];
+    let engineerCardHTML = [];
+    let internCardHTML = [];
 
-//generate arrays of cards
-genManagers(teamProfileArr);
-genEngineers(teamProfileArr);
-genInterns(teamProfileArr);
+    //generate arrays of cards
+    genManagers(teamProfileArr);
+    genEngineers(teamProfileArr);
+    genInterns(teamProfileArr);
 
-return `
+    return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Team Profile</title>
 </head>
 <body>
@@ -67,7 +72,7 @@ return `
 
             <section class='container'>
                 <div class='row'>
-                    ${engineerCardsHTML.join(" ")}
+                    ${engineerCardHTML.join(" ")}
                 </div>
             </section>
 
@@ -75,7 +80,7 @@ return `
 
             <section class='container'>
                 <div class='row'>
-                    ${internCardsHTML.join(" ")}
+                    ${internCardHTML.join(" ")}
                 </div>
             </section>
 
@@ -85,10 +90,22 @@ return `
 `
 }
 
-const generateHTML = (teamProfileArr) => {
-    fs.writeFile('./dist/TheTeam.html'), generate(teamProfileArr), function(err, result) {
-        (err) ? console.log('error', err): console.log('File generated, look in the dist file for your document')
-    }
-    }
+const generateHTML = teamProfileArr => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/myteam.html', generate(teamProfileArr), err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(console.log(`
+    ==========================================================
+    File created! look in the dist folder for your myteam.html
+    ==========================================================
+    `))
 
-    module.exports = generateHTML;
+        })
+    })
+}
+
+
+module.exports = generateHTML;

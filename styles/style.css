@@ -1,0 +1,137 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(230, 238, 240);
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(18, 20, 44);
+}
+
+.jumbotron {
+    min-height: 6em;
+    padding: 2rem;
+    background-color: rgb(130, 141, 143);
+    color: black;
+}
+
+main {
+    padding: 2rem 5rem;
+}
+h1 {
+font-family:'Ubuntu';
+font-size: 90px;
+}
+
+h3,h4,h5 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.manager {
+    color: var(black);
+    border-radius: 10px;
+    background-color:rgb(121, 127, 141);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    transition: .4s transform cubic-bezier(.155, 1.105, .295, 1.12), .4s box-shadow, .4s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+    opacity: 0.9;
+}
+
+.engineer {
+    color: black;
+    border-radius: 10px;
+    background-color: rgb(164, 178, 223);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    transition: .4s transform cubic-bezier(.155, 1.105, .295, 1.12), .4s box-shadow, .4s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+    opacity: 0.9;
+}
+
+.intern {
+    color:black;
+    border-radius: 10px;
+    background-color: rgb(234, 238, 248);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    transition: .4s transform cubic-bezier(.155, 1.105, .295, 1.12), .4s box-shadow, .4s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+    opacity: 0.9;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+    opacity: 1;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+/*MediaQuery for Mobile*/
+@media screen and (max-width: 480px) {
+    body {
+        background-color: var(--c-ddblue);
+        color: var(--c-llneutral);
+    }
+
+    main {
+        padding-top: 6rem;
+    }
+
+    .cmb-headshot {
+        box-shadow: 8px 10px 10px var(--c-blue);
+        border: .05em solid var(--c-blue);
+    }
+
+    h4 {
+        color: var(--c-dblue);
+    }
+
+    .cmb-fa {
+        text-decoration: none;
+        color: var(--c-llneutral);
+        font-size: 1.5em;
+    }
+
+    .cmb-fa:hover {
+        color: var(--c-dpink);
+        text-shadow: 8px 10px 10px var(--c-blue);
+    }
+
+    .text-muted {
+        color: var(--c-llneutral) !important;
+    }
+
+    .cmb-navbar {
+        background-image: linear-gradient(var(--c-lneutral), var(--c-neutral));
+        box-shadow: none;
+    }
+
+    .card-title,
+    .card-text {
+        color: var(--c-dblue);
+    }
+
+    .card {
+        border-radius: 4px;
+        background: var(--c-neutral);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+        transition: none;
+        opacity: 1;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+        opacity: 1;
+    }
+
+    footer .cmb-fa {
+        text-decoration: none;
+        color: var(--c-ddblue);
+        font-size: 1.5em;
+    }
+
+    footer .cmb-fa:hover {
+        color: var(--c-dpink);
+        text-shadow: 8px 10px 10px var(--c-taupe);
+    }
+}

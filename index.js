@@ -6,6 +6,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+
 //Team Profile Array
 const teamProfileArr = [];
 
@@ -44,9 +45,7 @@ const addManager = () => {
             {
                 type: 'input',
                 name: 'id',
-                message: ({
-                    name
-                }) => `Input ${name}'s employee ID number`,
+                message: ({name}) => `Input ${name}'s employee ID number`,
                 validate: id => {
                     if (id) {
                         return true;
